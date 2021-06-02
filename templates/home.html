@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+      국립공원탐방통제정보
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        국립공원탐방통제정보 이용을 환영합니다.
+      </h1>
+      <h2>
+        국립공원공단
+        <a href="http://www.knps.or.kr/portal/main.do" target="_blank">
+        바로가기
+        </a>
+      </h2>
+    </header>
+    <main>
+      {% if t_location: %}
+        <div>
+          <hr>
+          <h5>
+            ##########################################
+          </h5>
+          <h3>!경고!</h3>
+          <h3>
+            기상특보 발표로 진입을 통제합니다.
+          </h3>
+          <h3>{{t_location}}</h3>
+          <h5>
+            ##########################################
+          </h5>
+        </div>
+      {% endif %}
+      {% for data in db %}
+        <hr>
+        <div>
+          <a href="/{{data[6]}}">{{data[0]}}</a>: <b>{{data[1]}}</b>
+          <p>마지막 업데이트: {{data[3]}}</p>
+        </div>
+      {% endfor %}
+      <div>
+        <hr>
+        <a href="/hallasan">한라산</a>: 상세참조
+      </div>
+    </main>
+          
+  </body>
+  
+</html>

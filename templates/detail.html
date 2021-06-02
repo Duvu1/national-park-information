@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+      국립공원탐방통제정보 | {{data[0]}}
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        {{data[0]}} 통제정보
+      </h1>
+      <h2>
+        국립공원공단
+        <a href="http://www.knps.or.kr/portal/main.do" target="_blank">
+        바로가기
+        </a>
+      </h2>
+      <h3><a href="/">홈으로</a></h3>
+    </header>
+    <main>
+      <div>
+        공원(사무소) : {{data[0]}}
+      </div>
+      <h2>{{data[1]}}</h2>
+      <p>통제사유: {{data[2]}}</p>
+      <hr>
+      <div>
+        상세 :
+        {% for p in data[4]: %}
+        <p>
+        {{p.text}}
+        </p>
+        {% endfor %}
+      </div>
+      <hr>
+      <a href={{data[5]}} target="_blank">자세히 보기</a>
+    </main>
+          
+  </body>
+  
+</html>

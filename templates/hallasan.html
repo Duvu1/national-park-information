@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+      국립공원탐방통제정보 | 한라산
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        한라산 통제정보
+      </h1>
+      <h2>
+        국립공원공단
+        <a href="http://www.knps.or.kr/portal/main.do" target="_blank">
+        바로가기
+        </a>
+      </h2>
+      <h3>
+        한라산
+        <a href="http://www.jeju.go.kr/hallasan/index.htm" target="_blank">
+        바로가기
+        </a>
+      </h3>
+      <h3><a href="/">홈으로</a></h3>
+    </header>
+    <main>
+      <div>
+        공원(사무소): 한라산
+      </div>
+      {% for road in h_db: %}
+        <hr>
+        <div>
+          탐방로: {{road[0]}}
+        </div>
+        <h2>{{road[1]}}</h2>
+        <div>
+          <p>
+          거리 / 소요시간: {{road[2][0].text}}
+          </p>
+          <p>
+            경로: {{road[2][1].text}}
+          </p>
+        </div>
+        <a href={{road[3]}} target="_blank">자세히 보기</a>
+      {% endfor %}
+    </main>
+          
+  </body>
+  
+</html>
